@@ -1,7 +1,7 @@
 <mat-accordion>
     <mat-expansion-panel (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false"
-                         *ngFor = "let book of books">
+                         *ngFor = "let book of books$ | async">
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{book.title}}

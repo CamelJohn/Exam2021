@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-temperatures',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./temperatures.component.css']
 })
 export class TemperaturesComponent implements OnInit {
-
-  constructor() { }
+  city; 
+  constructor(private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.city = this.route.snapshot.params.city; 
   }
 
 }
