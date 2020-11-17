@@ -1,3 +1,4 @@
+import { WeatherService } from './../weather.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,10 +9,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TemperaturesComponent implements OnInit {
   city; 
-  constructor(private route:ActivatedRoute) { }
+  temperature; 
+  image; 
+  constructor(private route:ActivatedRoute, private weatherService:WeatherService) { }
 
   ngOnInit(): void {
     this.city = this.route.snapshot.params.city; 
+    this.weatherService.searchWeatherData(this.city).subscribe(
+      data => {
+        this.temperature = data.temperature;
+        this.image = data.image; 
+      }
+    )
   }
-
 }

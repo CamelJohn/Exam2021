@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms'; 
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,10 +15,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 import { MatListModule } from '@angular/material/list';
 import { TemperaturesComponent } from './temperatures/temperatures.component';
+import { ClassifyComponent } from './classify/classify.component';
+
+
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -25,6 +32,7 @@ import { TemperaturesComponent } from './temperatures/temperatures.component';
     BooksComponent,
     NavComponent,
     TemperaturesComponent,
+    ClassifyComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +45,10 @@ import { TemperaturesComponent } from './temperatures/temperatures.component';
     MatIconModule,
     MatListModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    MatRadioModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
