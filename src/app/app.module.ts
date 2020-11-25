@@ -16,6 +16,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 import { MatListModule } from '@angular/material/list';
@@ -24,6 +26,7 @@ import { ClassifyComponent } from './classify/classify.component';
 
 
 import { HttpClientModule } from '@angular/common/http';
+import { CityFormComponent } from './city-form/city-form.component';
 
 
 @NgModule({
@@ -33,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavComponent,
     TemperaturesComponent,
     ClassifyComponent,
+    CityFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,9 +50,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatExpansionModule,
     MatCardModule,
+    MatSelectModule,
     FormsModule,
     MatRadioModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
