@@ -17,6 +17,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -27,6 +28,12 @@ import { ClassifyComponent } from './classify/classify.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CityFormComponent } from './city-form/city-form.component';
+import { PostsComponent } from './posts/posts.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -37,6 +44,8 @@ import { CityFormComponent } from './city-form/city-form.component';
     TemperaturesComponent,
     ClassifyComponent,
     CityFormComponent,
+    PostsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -51,10 +60,12 @@ import { CityFormComponent } from './city-form/city-form.component';
     MatExpansionModule,
     MatCardModule,
     MatSelectModule,
+    MatInputModule,
     FormsModule,
     MatRadioModule,
     HttpClientModule,
-    
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

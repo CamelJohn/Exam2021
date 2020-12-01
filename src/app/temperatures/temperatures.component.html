@@ -2,7 +2,7 @@
 <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title *ngIf = "!hasError">Temperatures in {{city}} is {{(weatherData$ | async).temperature | number:'1.0-0'}}º</mat-card-title>
+      <mat-card-title *ngIf = "!hasError">Temperatures in {{city}} is {{(weatherData$ | async)?.temperature | number:'1.0-0'}}º</mat-card-title>
       <mat-card-title *ngIf = "hasError">{{errorMessage}}</mat-card-title>
       <mat-card-subtitle *ngIf = "!hasError"><img [src] = "image"></mat-card-subtitle>
     </mat-card-header>

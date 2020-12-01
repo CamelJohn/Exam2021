@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "hello-c321a"
+  },
+  "targets": {
+    "hello-c321a": {
+      "hosting": {
+        "hello": [
+          "hello-c321a"
+        ]
+      }
+    }
   }
 }
