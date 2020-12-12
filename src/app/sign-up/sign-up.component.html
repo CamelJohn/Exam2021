@@ -1,6 +1,6 @@
 <mat-card>
-    <h1>Login</h1>
-    <form #signinForm="ngForm" (ngSubmit)="onSubmit()">
+    <h1>SignUp</h1>
+    <form #signupForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="example-container">
         <p>
             <mat-form-field appearance="standard">
@@ -9,7 +9,7 @@
                 [(ngModel)] = "email"
                 name = "email"
                 required>
-              <mat-hint></mat-hint>
+              <mat-hint>The one you really read</mat-hint>
             </mat-form-field>
           </p> 
           <p>
@@ -20,16 +20,17 @@
                 name = "password" 
                 type = "password"
                 required>
-              <mat-hint></mat-hint>
+              <mat-hint>8 chracters or more</mat-hint>
             </mat-form-field>
           </p>                                       
         <div >
             <button mat-raised-button color="primary" 
-                    [disabled]="!signinForm.form.valid">
-                     Login
+                    [disabled]="!signupForm.form.valid">
+                     Sign Up
             </button>
         </div>
       </div>
     </form>
    </mat-card>
+
 

@@ -5,6 +5,7 @@ import { CityFormComponent } from './city-form/city-form.component';
 import { ClassifyComponent } from './classify/classify.component';
 import { LoginComponent } from './login/login.component';
 import { PostsComponent } from './posts/posts.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 import { TemperaturesComponent } from './temperatures/temperatures.component';
 
 const routes: Routes = [
@@ -13,7 +14,10 @@ const routes: Routes = [
   { path: 'classify/:network', component: ClassifyComponent },
   { path: 'city', component: CityFormComponent }, 
   { path: 'posts', component: PostsComponent},
-  { path: 'login', component: LoginComponent}    
+  { path: 'login', component: LoginComponent},
+  { path: 'signup', component: SignUpComponent}  
+  
+  
 
 ];
 

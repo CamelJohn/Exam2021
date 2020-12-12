@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { BooksService } from '../books.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class BooksComponent implements OnInit {
   books$; 
 
   panelOpenState = false;
-  constructor(private booksService:BooksService) { }
+  constructor(private booksService:BooksService, public authService:AuthService) { }
 
   ngOnInit(): void {
     //this.booksService.addBooks(); 

@@ -22,6 +22,10 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>hello</span>
+      <span class = "spacer"></span>
+      <a class = "whitelink" routerLink = "/signup" *ngIf = "!(authService.getUser()|async)">Signup</a>
+      <a class = "whitelink" routerLink = "/login" *ngIf = "!(authService.getUser()|async)">Login</a>
+      <a class = "whitelink1" (click) = "logout()" *ngIf = "(authService.getUser()|async)">Logout</a>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

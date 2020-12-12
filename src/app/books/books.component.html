@@ -1,4 +1,5 @@
-<mat-accordion>
+<p *ngIf = "!(authService.getUser()| async)">Your are not logged in</p>
+<mat-accordion *ngIf = "(authService.getUser()| async)">
     <mat-expansion-panel (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false"
                          *ngFor = "let book of books$ | async">
