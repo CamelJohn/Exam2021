@@ -12,12 +12,7 @@ export class AuthService {
   user:Observable<User | null>; 
   
   SignUp(email:string, password:string){
-    this.afAuth.createUserWithEmailAndPassword(email,password).then(
-      res =>{
-        console.log('Succesful login;');
-        this.router.navigate(['/books']); 
-      }
-    )
+    return this.afAuth.createUserWithEmailAndPassword(email,password);
   }
   
   
