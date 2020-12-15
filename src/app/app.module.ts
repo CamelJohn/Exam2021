@@ -35,6 +35,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import {AngularFirestoreModule} from '@angular/fire/firestore'; 
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     MatRadioModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

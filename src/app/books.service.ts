@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+//import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
+
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class BooksService {
+
 
   books = [{title:'Alice in Wonderland', author:'Lewis Carrol', summary:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley"},
   {title:'War and Peace', author:'Leo Tolstoy', summary:"of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in"},
@@ -22,10 +25,24 @@ export class BooksService {
     return booksObservable;  
   } 
 
+
   /*
   public getBooks(){
     return this.books;  
   }
   */
+
+  //bookCollection:AngularFirestoreCollection; 
+
+  /*
+  getBooks(userId):Observable<any[]>{
+    
+  }
+  */
+  
+  //constructor(private db:AngularFirestore) { }
   constructor() { }
+
+
+
 }
