@@ -35,7 +35,8 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import {AngularFirestoreModule} from '@angular/fire/firestore'; 
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { BookFormComponent } from './book-form/book-form.component'; 
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
     CityFormComponent,
     PostsComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    BookFormComponent
   ],
   imports: [
     BrowserModule,

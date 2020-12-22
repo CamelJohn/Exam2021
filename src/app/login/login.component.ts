@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { NgForm } from '@angular/forms';
@@ -10,13 +11,24 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   email:string;
-  password:string; 
+  password:string;
+  isError:boolean = false;
+  errorMessage:string; 
 
   onSubmit(){
-    this.auth.login(this.email,this.password);
+    this.auth.login(this.email,this.password).then(res => {
+      console.log(res);
+      this.router.navigate(['/books']); 
+    }).catch(
+      err => {
+        console.log(err);
+        this.isError = true; 
+        this.errorMessage = err.message; 
+      } 
+    ) 
   }
   
-  constructor(private auth:AuthService) { }
+  constructor(private auth:AuthService, private router:Router) { }
 
   ngOnInit(): void {
   }

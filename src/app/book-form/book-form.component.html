@@ -1,0 +1,33 @@
+<mat-card>
+    <h1>Update book</h1>
+    <form #bookForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="example-container">
+        <p>
+            <mat-form-field appearance="standard">
+              <mat-label>Title</mat-label>
+              <input matInput 
+                [(ngModel)] = "title"
+                name = "title"
+                required>
+            </mat-form-field>
+          </p> 
+          <p>
+            <mat-form-field appearance="standard">
+              <mat-label>Author</mat-label>
+              <input matInput 
+                [(ngModel)] = "author" 
+                name = "author" 
+                required>
+            </mat-form-field>
+          </p>                                       
+        <div >
+            <button mat-raised-button color="primary">
+                     Update
+            </button>
+        </div>
+      </div>
+    </form>
+   </mat-card>
+
+
+

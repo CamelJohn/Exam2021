@@ -9,6 +9,11 @@
         </mat-panel-title>
         <mat-panel-description>
           {{book.author}}
+          <button mat-raised-button
+          color = "primary"
+          (click) = "deleteBook(book.id)">
+          Delete
+          </button>
         </mat-panel-description>
       </mat-expansion-panel-header>
       <p>{{book.summary}}</p>

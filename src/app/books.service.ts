@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-//import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -18,13 +19,34 @@ export class BooksService {
     setInterval(()=>this.books.push({title:'A new one',author:'New author',summary:'Short summary'}),2000);
   }
   
+  /*
   public getBooks(){
     const booksObservable = new Observable(obs => {
       setInterval(()=>obs.next(this.books),500)
     });
     return booksObservable;  
   } 
+ */ 
 
+  bookCollection:AngularFirestoreCollection; 
+  
+  public getBooks(userId){
+    this.bookCollection = this.db.collection(`users/${userId}/books`); 
+    return this.bookCollection.snapshotChanges().pipe(map(
+      collection =>collection.map(
+        document => {
+          const data = document.payload.doc.data(); 
+          data.id = document.payload.doc.id;
+          return data; 
+        }
+      )
+    ))
+    
+  } 
+
+  deleteBook(Userid:string, id:string){
+    this.db.doc(`users/${Userid}/books/${id}`).delete(); 
+  } 
 
   /*
   public getBooks(){
@@ -32,7 +54,7 @@ export class BooksService {
   }
   */
 
-  //bookCollection:AngularFirestoreCollection; 
+  
 
   /*
   getBooks(userId):Observable<any[]>{
@@ -41,7 +63,11 @@ export class BooksService {
   */
   
   //constructor(private db:AngularFirestore) { }
-  constructor() { }
+  
+  
+  
+  
+  constructor(private db:AngularFirestore) { }
 
 
 

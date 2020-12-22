@@ -13,6 +13,9 @@ export class TemperaturesComponent implements OnInit {
   city:string; 
   temperature:number; 
   image:string; 
+  lon:number; 
+  lat:number;
+  country:string; 
   weatherData$:Observable<Weather>;
   hasError:Boolean = false;
   errorMessage:string;
@@ -25,7 +28,10 @@ export class TemperaturesComponent implements OnInit {
     this.weatherData$.subscribe(
       data => {
         this.temperature = data.temperature;
-        this.image = data.image; 
+        this.image = data.image;
+        this.country = data.country;
+        this.lon = data.lon;
+        this.lat = data.lat;  
       }, 
       error =>{
         console.log(error.message);
