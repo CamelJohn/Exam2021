@@ -4,6 +4,7 @@ import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firest
 import { map } from 'rxjs/operators';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -28,7 +29,8 @@ export class BooksService {
   } 
  */ 
 
-  bookCollection:AngularFirestoreCollection; 
+  bookCollection:AngularFirestoreCollection;
+  userCollection:AngularFirestoreCollection = this.db.collection('users'); 
   
   public getBooks(userId){
     this.bookCollection = this.db.collection(`users/${userId}/books`); 
@@ -47,6 +49,20 @@ export class BooksService {
   deleteBook(Userid:string, id:string){
     this.db.doc(`users/${Userid}/books/${id}`).delete(); 
   } 
+
+  addBook(userId:string,title:string,author:string){
+    const book = {title:title, author:author}; 
+    this.userCollection.doc(userId).collection('books').add(book);
+  }
+
+  updateBook(userId:string,id:string,title:string,author:string){
+    this.db.doc(`users/${userId}/books/${id}`).update(
+      {
+        title:title,
+        author:author
+      }
+    )
+  }
 
   /*
   public getBooks(){

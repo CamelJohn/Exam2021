@@ -1,6 +1,6 @@
 <mat-card>
     <h1>Update book</h1>
-    <form #bookForm="ngForm" (ngSubmit)="onSubmit()">
+    <form #bookForm="ngForm">
       <div class="example-container">
         <p>
             <mat-form-field appearance="standard">
@@ -21,9 +21,14 @@
             </mat-form-field>
           </p>                                       
         <div >
-            <button mat-raised-button color="primary">
+            <button mat-raised-button color="primary" 
+                    (click)= "updateParent()">
                      Update
             </button>
+            <button mat-raised-button  
+                    (click)= "tellParentToClose()">
+                     Cancel
+            </button>            
         </div>
       </div>
     </form>
