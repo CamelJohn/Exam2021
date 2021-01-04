@@ -1,8 +1,23 @@
 <p *ngIf = "!(authService.getUser()| async)">Your are not logged in</p>
+<div>
+  <button mat-raised-button
+  color = "primary"
+  (click) = "addBookFormOPen = !addBookFormOPen"
+>
+Add Book
+</button>      
+</div>
+<div>
+  <bookform *ngIf = "addBookFormOPen"
+    (update) = "add($event)"
+    (closeEdit) = "addBookFormOPen = false"
+    [formType] = "'Add book'">    
+  </bookform>
+</div>
 <mat-accordion *ngIf = "(authService.getUser()| async)">
     <mat-expansion-panel (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false"
-                         *ngFor = "let book of books$ | async;let i = index">
+                         *ngFor = "let book of books;let i = index">
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{book.title}}
@@ -26,6 +41,7 @@
         [hidden] = "!editstate[i]"
         [title] = "book.title"
         [author] = "book.author"
+        [formType] = "'Edit book'"
         [id] = "book.id"
         (update) = "update($event);editstate[i] = !editstate[i]"
         (closeEdit) = "editstate[i] = !editstate[i]"
@@ -34,4 +50,12 @@
       <p>{{book.summary}}</p>
     </mat-expansion-panel>
   </mat-accordion>
+  <div>
+    <button mat-raised-button
+    color = "primary"
+    (click) = "nextPage()"
+>
+  Next page
+</button>
+  </div>
   

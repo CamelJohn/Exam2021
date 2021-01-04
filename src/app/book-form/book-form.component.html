@@ -1,5 +1,5 @@
 <mat-card>
-    <h1>Update book</h1>
+    <h1>{{formType}}</h1>
     <form #bookForm="ngForm">
       <div class="example-container">
         <p>
@@ -23,7 +23,7 @@
         <div >
             <button mat-raised-button color="primary" 
                     (click)= "updateParent()">
-                     Update
+                     {{formType}}
             </button>
             <button mat-raised-button  
                     (click)= "tellParentToClose()">
