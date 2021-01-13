@@ -52,10 +52,14 @@ Add Book
   </mat-accordion>
   <div>
     <button mat-raised-button
+    color="primary"
+    (click) = "prevPage()">
+       Previous page
+    </button>        
+    <button mat-raised-button
     color = "primary"
-    (click) = "nextPage()"
->
-  Next page
-</button>
+    (click) = "nextPage()">
+      Next page
+    </button>
   </div>
   

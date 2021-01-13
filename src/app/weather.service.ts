@@ -32,7 +32,7 @@ export class WeatherService {
     return {
       name:data.name,
       country:data.sys.country,
-      image:`http://api.openweathermap.org/img/w/${data.weather[0].icon}.png`,
+      image:`https://api.openweathermap.org/img/w/${data.weather[0].icon}.png`,
       description:data.weather[0].description,
       temperature:data.main.temp, 
       lat:data.coord.lat,

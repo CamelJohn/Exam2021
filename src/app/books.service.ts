@@ -32,11 +32,27 @@ export class BooksService {
   bookCollection:AngularFirestoreCollection;
   userCollection:AngularFirestoreCollection = this.db.collection('users'); 
   
-  public getBooks(userId,startAfter){
+  public getBooks(userId){
     this.bookCollection = this.db.collection(`users/${userId}/books`, 
-    ref => ref.orderBy('title', 'asc').limit(4).startAfter(startAfter)); 
+    ref => ref.orderBy('title', 'asc').limit(4)); 
     return this.bookCollection.snapshotChanges()      
   } 
+
+  nextPage(userId,startAfter): Observable<any[]>{
+    this.bookCollection = this.db.collection(`users/${userId}/books`, 
+    ref => ref.limit(4).orderBy('title', 'asc')
+      .startAfter(startAfter))    
+    return this.bookCollection.snapshotChanges();
+  }
+  
+  prevPage(userId,startAt): Observable<any[]>{
+    this.bookCollection = this.db.collection(`users/${userId}/books`, 
+    ref => ref.limit(4).orderBy('title', 'asc')
+      .startAt(startAt))    
+    return this.bookCollection.snapshotChanges();
+  }
+
+
 
   /*
   public getBooks(userId){
