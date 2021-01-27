@@ -1,0 +1,72 @@
+<mat-card>
+  <h1>Student Details Form</h1>
+  <form #studentForm="ngForm">
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>Math Average Grade</mat-label>
+        <input
+          matInput
+          [(ngModel)]="mathAvg"
+          name="mathAvg"
+          type="number"
+          min="0"
+          max="100"
+          required
+        />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>Psychometric Score</mat-label>
+        <input
+          matInput
+          [(ngModel)]="psychometric"
+          name="psychometric"
+          type="number"
+          min="0"
+          max="800"
+          required
+        />
+      </mat-form-field>
+    </p>
+    <!-- <p> -->
+      <!-- <mat-form-field appearance="standard"> -->
+        <!-- <mat-label>Paid Tuition ?</mat-label> -->
+        <section>
+          <mat-checkbox
+          [checked]="paid"
+        >Paid ?</mat-checkbox>
+        </section>
+      <!-- </mat-form-field> -->
+    <!-- </p> -->
+    <p *ngIf="!isPredict">
+      <!-- <mat-form-field appearance="standard"> -->
+        <button mat-raised-button color="primary" (click)="handlePredict()">
+          Predict
+        </button>
+      <!-- </mat-form-field> -->
+    </p>
+    <p *ngIf="isPredict">
+      <!-- <mat-form-field appearance="standard"> -->
+        <button mat-raised-button color="primary" (click)="handleSave()">
+          Save
+        </button>
+      <!-- </mat-form-field> -->
+    </p>
+    <p *ngIf="isPredict">
+      <!-- <mat-form-field appearance="standard"> -->
+        <button mat-raised-button (click)="handleCancel()">Cancel</button>
+      <!-- </mat-form-field> -->
+    </p>
+    <p *ngIf="isPredict">
+      <mat-form-field appearance="standard" >
+        <!-- <mat-label>Dropout</mat-label> -->
+        <mat-select>
+          <mat-option *ngFor="let score of scores" [value]="score.value">
+            {{ score.value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+  </form>
+</mat-card>
